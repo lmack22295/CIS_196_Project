@@ -1,0 +1,15 @@
+<nav class="nav-banner">
+  <a class="nav-btn" href="/">Home</a>
+  <a class="nav-btn" href="/users">Users</a>
+  <a class="nav-btn" href="/events">Events</a>
+  <!-- Add link to user's show page and log out button if logged in -->
+  <% if logged_in? %>
+	  <a class="nav-btn" href=<%= "/users/#{current_user.id}"%>><%= current_user.name %></a>
+    <a class="nav-btn" href="/logout">Log out</a>
+  <!-- Add log out link otherwise -->
+  <% else %>
+	  <a class="nav-btn" href="/login">Log in</a> 
+	  <a class="nav-btn" href="/users/new">Sign up</a> 
+  <% end %>	
+  </span>
+</nav>

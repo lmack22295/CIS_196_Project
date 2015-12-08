@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Events:</strong>
+  <ul>
+  	<% @user.events.each do |event| %>
+  	  <li><%= link_to "#{event.name}", event %>
+  	<% end %>
+  </ul>	  	
+</p>
+<% if logged_in? && @user == current_user %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>  
+<%= link_to 'Back', users_path %>
