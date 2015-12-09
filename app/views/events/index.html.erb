@@ -19,12 +19,14 @@
         <td><%= event.description %></td>
         <td><%= event.time %></td>
         <td><%= link_to 'Show', event %></td>
+    <% if current_user %>    
       <% if event.admin.id == current_user.id %>  
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>  
       </tr>
-    <% end %>
+    <% end %>  
+    <% end %>  
   </tbody>
 </table>
 
